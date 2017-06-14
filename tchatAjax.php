@@ -33,6 +33,7 @@
 			$d["result"] = [];
 			$d["lastid"] = $lastid;
 			while ($data = mysqli_fetch_assoc($req)){
+				$date = date('H:i:s', $data['date']);
 				$message = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span><br> '.htmlentities($data["message"]).'</p><hr>';
 				$fichier = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span></p><a href="download.php?id='.$data['id'].'">'.$data['message'].'</a><br><hr>';
 				$image = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span><br></p><img src="upload/'.$data["message"].'" width="10%"/><hr>';
