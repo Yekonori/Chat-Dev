@@ -33,10 +33,10 @@
 			$d["result"] = [];
 			$d["lastid"] = $lastid;
 			while ($data = mysqli_fetch_assoc($req)){
-				$message = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong> :<br> '.nl2br($data["message"]).'</p><hr>';
-				$fichier = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong> : </p><a href="download.php?id='.$data['id'].'">'.$data['message'].'</a><br><hr>';
-				$image = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong> :<br></p><img src="upload/'.$data["message"].'" width="10%"/><hr>';
-				$code = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong> :<br><pre><code> '.htmlentities($data["message"]).'</code></pre></p><hr>';
+				$message = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span><br> '.htmlentities($data["message"]).'</p><hr>';
+				$fichier = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span></p><a href="download.php?id='.$data['id'].'">'.$data['message'].'</a><br><hr>';
+				$image = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span><br></p><img src="upload/'.$data["message"].'" width="10%"/><hr>';
+				$code = '<p class="temps" data-time='.$data['date'].'><strong>'.$data["pseudo"].'</strong><span style="font-size:1rem;margin-left:6px;">'.$date.'</span><br><pre><code> '.htmlentities($data["message"]).'</code></pre></p><hr>';
 				if($data['type'] == 'message') {
 					array_push($d["result"], $message);
 					$d["lastid"] = $data["id"];
